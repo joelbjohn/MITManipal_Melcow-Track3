@@ -122,9 +122,9 @@ Track 3 layout:
 
 ```text
 estimated_trajectory.txt
-metadata.json                 # optional local measurement record
+metadata.json                 #local measurement record
 src/main.py
-src/README.md                 # a copy of this README
+src/README.md               
 ```
 
 The final video and presentation accompany the submission separately. The
