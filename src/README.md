@@ -21,7 +21,7 @@ our estimate is from it.
 From the project folder, run:
 
 ```bash
-python3 src/main.py data/data.csv estimated_trajectory.txt
+python3 src/main.py data/degraded_data.csv estimated_trajectory.txt
 ```
 
 You can replace the input and output names with other paths. `main.py` uses
@@ -60,7 +60,7 @@ This is a tradeoff: filtering drift can also remove real, slow movement.
 
 ## Data and local checks
 
-We used two public EuRoC MAV recordings: `V1_01_easy` and `V1_02_medium`.
+We used three public EuRoC MAV recordings: `V1_01_easy`, `V1_02_medium`, and `V1_03_difficult`.
 For each recording, we rearranged a copy of the IMU columns because the
 organiser's `degrade_imu.py` expects acceleration before gyro readings.
 The organiser's script then produced damaged IMU data with increasing noise,
@@ -73,6 +73,7 @@ rotation and translation, with no scale correction.
 | --- | ---: | ---: | ---: | ---: |
 | `V1_01_easy` | 28,367 | 28,367 | 1.75 m | 1.44 m |
 | `V1_02_medium` | 16,624 | 16,624 | 1.59 m | 0.73 m |
+| `V1_03_difficult` | 20,844 | 20,844 | 1.46 m | 1.22 m |
 
 These are **local public-dataset results**, not scores from the organiser's
 hidden checkpoints. The known EuRoC path is used only by the comparison,
@@ -82,14 +83,17 @@ On our laptop, the `V1_02_medium` run took a median of **0.249 s** for
 **85.495 s of IMU data**, or **2.92 ms of processing per second of IMU**.
 The challenge limit is 20 ms per IMU second. Python allocation tracing
 reported a peak of **1,127,503 bytes (about 1.08 MiB)**, below the 8 MB
-algorithm-memory limit. The Python interpreter itself is excluded by the
-organiser's FAQ. These measurements are from `benchmark.py`; the organiser
-will measure performance in its own environment.
+algorithm-memory limit. The Python interpreter itself is excluded by the organiser's FAQ.
+
+For `V1_03_difficult`, the local check took **0.307 s** for **107.495 s**
+of IMU data (**2.85 ms per IMU second**) and traced a peak of
+**1,338,028 bytes (about 1.28 MiB)**. These measurements are from
+`benchmark.py`; the organiser will measure performance in its own environment.
 
 To measure this again on your computer, use:
 
 ```bash
-python3 benchmark.py data/data.csv
+python3 benchmark.py data/degraded_data.csv
 ```
 
 This creates `metadata_local.json` and regenerates the output trajectory.
@@ -115,7 +119,9 @@ separately.
 
 ## Repository and submission files
 
-The final submission follows the
+The repository can keep `benchmark.py`, the organiser's degradation script,
+and instructions explaining how the sample data was made. Keep the large
+EuRoC CSVs and `.venv/` out of GitHub. The final submission ZIP follows the
 Track 3 layout:
 
 ```text
@@ -125,6 +131,8 @@ MITManipal_Melcow_Track3_Submission.ppt
 .gitignore
 requirements.txt
 src/main.py
-src/README.md               
+src/README.md  
 ```
 
+The final video and presentation accompany the submission separately. The
+team ZIP and presentation names should match the registered team name.
