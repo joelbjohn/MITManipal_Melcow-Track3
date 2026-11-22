@@ -1,7 +1,7 @@
 # Path Finder: Estimating a Flight Path from a Damaged IMU
 
 **Samsung XR Hackathon 2026, Track 3**  
-**Team:** MITManipal_Melcow-Track3
+**Team:** Melcow
 
 ## What we built
 
@@ -21,7 +21,7 @@ our estimate is from it.
 From the project folder, run:
 
 ```bash
-python3 src/main.py data/degraded_data.csv estimated_trajectory.txt
+python3 src/main.py data/data.csv estimated_trajectory.txt
 ```
 
 You can replace the input and output names with other paths. `main.py` uses
@@ -89,7 +89,7 @@ will measure performance in its own environment.
 To measure this again on your computer, use:
 
 ```bash
-python3 benchmark.py data/degraded_data.csv
+python3 benchmark.py data/data.csv
 ```
 
 This creates `metadata_local.json` and regenerates the output trajectory.
@@ -115,17 +115,16 @@ separately.
 
 ## Repository and submission files
 
-The repository can keep `benchmark.py`, the organiser's degradation script,
-and instructions explaining how the sample data was made. Keep the large
-EuRoC CSVs and `.venv/` out of GitHub. The final submission ZIP follows the
+The final submission follows the
 Track 3 layout:
 
 ```text
 estimated_trajectory.txt
 metadata.json                 #local measurement record
+MITManipal_Melcow_Track3_Submission.ppt
+.gitignore
+requirements.txt
 src/main.py
 src/README.md               
 ```
 
-The final video and presentation accompany the submission separately. The
-team ZIP and presentation names should match the registered team name.
