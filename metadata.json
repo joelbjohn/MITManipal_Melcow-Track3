@@ -1,0 +1,15 @@
+{
+  "input": "/home/sreerag/Projects/MITManipal_Melcow-Track3/data/degraded_data.csv",
+  "imu_duration_s": 85.495,
+  "rows_input": 16624,
+  "rows_output": 16624,
+  "output_rows_match": true,
+  "runtime_s_median": 0.249413,
+  "runtime_ms_per_imu_s": 2.9173,
+  "runtime_budget_s": 1.7099,
+  "runtime_budget_pass_local": true,
+  "peak_traced_python_allocations_bytes": 1127503,
+  "heap_budget_bytes": 8388608,
+  "heap_budget_pass_local": true,
+  "note": "Local checks only. tracemalloc excludes some native allocations and base interpreter RSS; organiser scoring may differ."
+}
